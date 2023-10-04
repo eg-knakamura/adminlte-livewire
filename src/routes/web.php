@@ -16,3 +16,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/admin/login', function () {
+    return view('/auth/login');
+})
+    ->name('admin.login');
+
+Route::post(
+    '/admin/auth',
+    '\App\Http\Controllers\Admin\LoginController@authenticate'
+)->name('admin.auth');
+
+Route::post(
+    '/admin/logout',
+    '\App\Http\Controllers\Admin\LoginController@logout'
+)->name('admin.logout');
+
+Route::middleware(['auth:admin'])->group(function () {
+    Route::get('/admin/home', function () {
+        return view('/admin/home');
+    })->name('admin.home');
+});
