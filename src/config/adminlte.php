@@ -367,6 +367,22 @@ return [
                 ],
             ],
         ],
+        [
+            'text' => 'administrator',
+            'icon' => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'administrator.create',
+                    'url' => 'admin/administrator/create',
+                    'icon' => 'fas fa-fw',
+                ],
+                [
+                    'text' => 'administrator.list',
+                    'url' => 'admin/administrator/list',
+                    'icon' => 'fas fa-fw',
+                ],
+            ],
+        ],
         ['header' => 'labels'],
         [
             'text'       => 'important',
@@ -537,5 +553,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];
