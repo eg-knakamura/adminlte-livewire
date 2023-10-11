@@ -36,4 +36,19 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/home', function () {
         return view('/admin/home');
     })->name('admin.home');
+
+    Route::get(
+        '/admin/administrator/create',
+        '\App\Http\Controllers\Admin\AdministratorController@createIndex'
+    )->name('administrator.create');
+
+    Route::get(
+        '/admin/administrator/list',
+        '\App\Http\Controllers\Admin\AdministratorController@listIndex'
+    )->name('administrator.list');
+
+    Route::get(
+        '/admin/administrator/edit/{id}',
+        '\App\Http\Controllers\Admin\AdministratorController@editIndex'
+    )->name('administrator.edit');
 });
